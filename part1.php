@@ -1,6 +1,6 @@
 <?php
 $nameErr = $emailErr = $genderErr = $detailsErr =$coursesErr =$agreeErr = "";
-$name = $email = $gender = $details =$courses =$agree = "";
+$name = $email =$group = $gender = $details =$courses =$agree = "";
 if (isset ($_POST['submit'])) {
  if ($_SERVER['REQUEST_METHOD']=="POST")
 	{
@@ -9,17 +9,17 @@ if (isset ($_POST['submit'])) {
 	  }
 	   else {
 		$name = $_POST["name"];
-	// if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
-	// 	  $nameErr = "Only letters and white space allowed";}
+	if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+		  $nameErr = "only letters and space allowed";}
 		}
 	  }
 	if (empty($_POST["email"])) {
 		$emailErr = "Email is required";
 	  } else {
 		$email = $_POST["email"];
-	// if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-	// 	  $emailErr = "Invalid email format";
-	//   }
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		  $emailErr = "invalid email format";
+	  }
 	  }
 	if (!empty($_POST["group"])) {
 		$group = $_POST["group"];
@@ -113,9 +113,10 @@ if (isset ($_POST['submit'])) {
 			echo "<br>";
 			echo "Gender:".$gender;
 			echo "<br>";
+			echo "Your courses are:";
 			if (!empty($_POST["courses"])) {
 				foreach($_POST["courses"] as $courses){
-				echo "Your courses are:".$courses;
+				echo " ".$courses." ";
 		}}
 	
 		?>

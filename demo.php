@@ -22,9 +22,6 @@ foreach($students as $key) {
           
 }
 
-
-
-  
 ?>
 <!DOCTYPE html>
 <html lang="en">
