@@ -1,7 +1,7 @@
 <?php
 $nameErr = $emailErr = $genderErr = $detailsErr =$coursesErr =$agreeErr = "";
 $name = $email = $gender = $details =$courses =$agree = "";
-// if (isset ($_POST['submit'])) 
+if (isset ($_POST['submit'])) {
  if ($_SERVER['REQUEST_METHOD']=="POST")
 	{
 	if (empty($_POST["name"])) {
@@ -27,8 +27,6 @@ $name = $email = $gender = $details =$courses =$agree = "";
 	if (!empty($_POST["details"])) {
 		$details = $_POST["details"];
 	  }
- 
-
 	if (empty($_POST["gender"])) {
 		$genderErr = "Gender is required";
 	  } else {
@@ -39,28 +37,7 @@ $name = $email = $gender = $details =$courses =$agree = "";
 	  } else {
 		$agree = $_POST["agree"];
 	  }
-	// }
-
-	//   function test_input($data) {
-	// 	// $data = trim($data);
-	// 	// $data = stripslashes($data);
-	// 	// $data = htmlspecialchars($data);
-	// 	return $data;
-	//   }
-		// if(!empty($_GET["name"]) && !empty($_GET["email"]) && !empty($_GET["agree"]) && !empty($_GET["gender"])) {
-		// 	echo "<h2>Your given values are as:</h2>";
-		// 	echo "Name:".$_GET["name"];
-		// 	echo "<br>";
-		// 	echo "E-mail:".$_GET["email"];
-		// 	echo "<br>";
-		// 	echo "Group:".$_GET["group"];
-		// 	echo "<br>";
-		// 	echo "Class:".$_GET["details"];
-		// 	echo "<br>";
-		// 	echo "Gender:".$_GET["gender"];
-		// 	echo "<br>";
-		// 	echo "Your courses are:".$_GET["courses"];
-		// }
+	}
 		?>
 <!DOCTYPE html>
 <html>
@@ -140,18 +117,7 @@ $name = $email = $gender = $details =$courses =$agree = "";
 				foreach($_POST["courses"] as $courses){
 				echo "Your courses are:".$courses;
 		}}
-			// echo "<h2>Your given values are as:</h2>";
-			// echo $name;
-			// echo "<br>";
-			// echo $email;
-			// echo "<br>";
-			// echo $group;
-			// echo "<br>";
-			// echo $details;
-            // echo "<br>";
-			// echo $gender;
-			// echo "<br>";
-			// echo $courses;
+	
 		?>
 </body>
 
