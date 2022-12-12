@@ -37,7 +37,11 @@ if (isset ($_POST['submit'])) {
 	  } else {
 		$agree = $_POST["agree"];
 	  }
+	  if (!empty($_POST["courses"])) {
+		foreach($_POST["courses"] as $courses){
+			$courses ;}}
 	}
+	
 		?>
 <!DOCTYPE html>
 <html>
@@ -60,32 +64,32 @@ if (isset ($_POST['submit'])) {
             <table>
             <tr>
             <td><label>Name:</label></td>
-			<td><input type="text" name="name">
+			<td><input type="text" name="name" value="<?php echo $name ?>">
 			<span class="error">* <?php echo $nameErr;?></span></td>
 			</tr>
             <tr>
             <td> <label>E-mail:</label></td>
-			<td><input type="text" name="email">
+			<td><input type="text" name="email" value="<?php echo $email ?>">
 			<span class="error">* <?php echo $emailErr;?></span></td>
 			</tr>
             <tr>
             <td><label>	Group #:</label></td>
-			<td><input type="number" name="group"></td>
+			<td><input type="number" name="group" value="<?php echo $group ?>"></td>
 			</tr>
             <tr>
             <td><label>	Class details:</label></td>
-			<td><textarea name="details" rows="5" cols="40"></textarea></td>
+			<td><textarea name="details" rows="5" cols="40" ><?php echo $details?></textarea></td>
 			</tr>
             <tr>
             <td><label>	Gender:</label></td>
-			<td><input type="radio" name="gender" value="female">Female
-			<input type="radio" name="gender" value="male">Male
+			<td><input type="radio" name="gender" value="female" <?php if (isset($gender) && $gender=="female") echo "checked";?>>Female
+			<input type="radio" name="gender" value="male" <?php if (isset($gender) && $gender=="male") echo "checked";?>>Male
 			<span class="error">* <?php echo $genderErr;?></span></td>
 			</tr>
             <tr>
             <td><label>	Select Courses:</label></td>
             <td>
-                <select name='courses[]' multiple>
+                <select name='courses[]' multiple >
                 <option>PHP</option>
                 <option>JavaScript</option>
                 <option>MySQL</option>
@@ -95,7 +99,7 @@ if (isset ($_POST['submit'])) {
             </tr>
             <tr>
             <td><label>Agree:</label></td>
-			<td><input type="checkbox" name="agree">
+			<td><input type="checkbox" name="agree" value="yes" <?php if (!empty($agree) && $agree="yes") echo "checked";?>>
 			<span class="error">* <?php echo $agreeErr;?></span></td>
 			</tr>
 			<tr><td><input type="submit" name="submit"></td></tr>
