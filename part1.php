@@ -37,9 +37,6 @@ if (isset ($_POST['submit'])) {
 	  } else {
 		$agree = $_POST["agree"];
 	  }
-	  if (!empty($_POST["courses"])) {
-		foreach($_POST["courses"] as $courses){
-			$courses ;}}
 	}
 	
 		?>
@@ -89,12 +86,13 @@ if (isset ($_POST['submit'])) {
             <tr>
             <td><label>	Select Courses:</label></td>
             <td>
-                <select name='courses[]' multiple >
-                <option>PHP</option>
-                <option>JavaScript</option>
-                <option>MySQL</option>
-                <option>HTML</option>
+                <select name='courses[]' multiple>
+                <option <?php if (isset($_POST["courses"])&& in_array("PHP",$_POST["courses"])) echo " selected"; ?>>PHP</option>
+                <option <?php if (isset($_POST["courses"])&& in_array("JavaScript",$_POST["courses"])) echo " selected"; ?>>JavaScript</option>
+                <option <?php if (isset($_POST["courses"])&& in_array("MySQL",$_POST["courses"])) echo " selected"; ?>>MySQL</option>
+                <option <?php if (isset($_POST["courses"])&& in_array("HTML",$_POST["courses"])) echo " selected"; ?>>HTML</option>
                 </select>
+				
             </td>
             </tr>
             <tr>
